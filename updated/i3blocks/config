@@ -1,0 +1,59 @@
+# Volume Block
+[volume]
+command=pamixer --get-volume-human
+interval=1
+label=Vol:
+color=#00FF00  # Green
+
+
+# Wi-Fi Block
+[wifi]
+command=iwgetid -r
+interval=10
+label=Wi-Fi:
+color=#FF0000  # DeepSkyBlue for Wi-Fi
+
+
+# CPU Usage Block
+[cpu]
+command=sar -u 1 1 | grep -i 'average' | awk '{print $3 "%"}'
+interval=5
+label=CPU:
+color=#FF0000  # Red
+
+# Memory Usage Block
+[memory]
+command=free -h | grep Mem | awk '{print $3 "/" $2}'
+interval=5
+label=Mem:
+color=#00FFFF  # Cyan
+
+# Disk Usage Block
+[disk]
+command=df -h / | awk 'NR==2 {print $3 "/" $2}'
+interval=60
+label=Disk:
+color=#FFA500  # Orange
+
+
+[cpu_temp]
+command=~/scripts/cpu_temp.sh
+interval=10
+label=CPU:
+
+
+
+# Battery Block
+[battery]
+command=acpi -b | awk '{print $4 " " $5}' | sed 's/,//'
+interval=30
+label=Bat:
+color=#FFFFFF  # OrangeRed for battery
+
+
+# Date and Time Block
+[time]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=1
+label=Time:
+color=#FFFFFF  # Yellow
