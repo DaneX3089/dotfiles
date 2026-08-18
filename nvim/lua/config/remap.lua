@@ -6,14 +6,16 @@ vim.keymap.set("n", "<C-w>v", "<C-w>v<C-w>l", { desc = "Split vertical and focus
 vim.keymap.set("n", "<C-w>s", "<C-w>s<C-w>j", { desc = "Split horizontal and focus" })
 vim.keymap.set({"i", "n", "v"}, "<C-k>", vim.lsp.buf.signature_help)
 vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format()<cr>")
+vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
+vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>")
 vim.keymap.set("n", "<C-n>", "<cmd>Oil<cr>")
 vim.keymap.set("n", "q", "<Nop>", { noremap = true })
 vim.keymap.set("t", "<Escape>", "<C-\\><C-n>")
 
-vim.keymap.set({ "n", "t" }, "<A-x>", function()
-  require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
-end, { desc = "terminal toggleable horizontal term" })
+vim.keymap.set("n", "<A-o>", "<cmd>LspClangdSwitchSourceHeader<cr>")
 
-vim.keymap.set("n", "<leader>th", function()
-	require("nvchad.themes").open()
-end, { desc = "NvChad theme switcher" })
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
