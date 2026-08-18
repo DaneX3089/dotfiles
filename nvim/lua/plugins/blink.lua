@@ -5,6 +5,7 @@ return {
 		-- optional: provides snippets for the snippet source
 		"rafamadriz/friendly-snippets",
 	},
+
 	build = function()
 		-- build the fuzzy matcher, optionally add a timeout to `pwait(timeout_ms)`
 		-- you can use `gb` in `:Lazy` to rebuild the plugin as needed
@@ -26,12 +27,24 @@ return {
 		-- C-k: Toggle signature help (if signature.enabled = true)
 		--
 		-- See :h blink-cmp-config-keymap for defining your own keymap
-		keymap = { preset = "default" },
+		keymap = {
+			preset = "default",
+			["<Up>"] = {},
+			["<Down>"] = {},
+		},
 
 		-- (Default) Only show the documentation popup when manually triggered
 		completion = {
-			documentation = { auto_show = true },
+			list = {
+				selection = {
+					preselect = false,
+				},
+			},
+			documentation = {
+				auto_show = true,
+			},
 			menu = {
+				border = "single",
 				-- Don't automatically show the completion menu
 				auto_show = true,
 
