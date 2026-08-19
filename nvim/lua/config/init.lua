@@ -1,6 +1,10 @@
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
 
+
+vim.o.swapfile = false
+vim.o.backup = false
+vim.o.undofile = true
 vim.o.pumwidth = 10
 vim.o.pumheight = 10
 vim.o.number = true
@@ -17,5 +21,9 @@ vim.o.signcolumn = "yes"
 vim.o.wrap = false
 vim.o.autoread = true
 vim.o.showmode = false
+vim.o.hlsearch = false
+vim.o.incsearch = true
+vim.o.scrolloff = 8
 
-vim.cmd.colorscheme("rose-pine")
+
+vim.cmd("colorscheme rose-pine")
