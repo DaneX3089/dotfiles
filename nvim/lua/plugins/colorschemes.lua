@@ -3,6 +3,10 @@ return {
 		"navarasu/onedark.nvim",
 		lazy = false,
 	},
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+	},
 
 	{
 		"https://github.com/vague-theme/vague.nvim",

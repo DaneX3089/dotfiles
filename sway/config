@@ -13,11 +13,10 @@ set $right l
 # Your preferred terminal emulator
 set $term alacritty 
 # Your preferred application launcher
-set $menu rofi -show drun 
-
+set $menu rofi -show drun -drun-match-fields name -drun-display-format "{name}"
 ### Output configuration
 #
-output * bg /home/dan/Pictures/27-Golden-Gate-Dark.png fill
+# output * bg /home/dan/Pictures/27-Golden-Gate-Dark.png fill
 
 #output * bg /usr/share/backgrounds/default.jxl fill
 #output DP-1 mode 1920x1080@165Hz
@@ -46,8 +45,7 @@ input type:touchpad {
     drag_lock disabled
 }
 
-
-default_border none
+seat seat0 xcursor_theme WhiteSur-cursors 24
 font pango:JetBrains Mono Nerd Font 10
 
     # Start a terminal
@@ -176,6 +174,10 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+
+
+default_border none
+corner_radius 15
 
 #
 # Colors:

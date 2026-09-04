@@ -26,4 +26,4 @@ vim.o.incsearch = true
 vim.o.scrolloff = 8
 
 
-vim.cmd("colorscheme rose-pine")
+vim.cmd("colorscheme vague")

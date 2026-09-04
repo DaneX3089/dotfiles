@@ -3,15 +3,15 @@
     "position": "top",
     "height": 30,
 
-    "modules-left": ["hyprland/workspaces", "hyprland/mode"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["custom/spotify", "custom/weather", "custom/storage", "pulseaudio", "network", "battery", "clock", "tray"],
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["custom/spotify","pulseaudio", "custom/battery", "clock", "tray"],
 
-    "hyprland/workspaces": {
+    "sway/workspaces": {
         "format": "{name}",
         "disable-scroll": true
     },
-    "hyprland/window": {
+    "sway/window": {
         "max-length": 80,
         "tooltip": false
     },
@@ -19,11 +19,22 @@
         "format": "{:%a %d %b %H:%M}",
         "tooltip": false
     },
+
+
+		"custom/battery": {
+        "exec": "~/.config/waybar/modules/battery_decimal.sh",
+        "return-type": "json",
+        "interval": 5,
+        "format": "{}",
+        "format-alt": "{alt}",
+        "tooltip": false
+    },
+
     "battery": {
         "format": "{capacity}% {icon}",
         "format-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", ""],
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% 󰂄",
         "interval": 30,
         "states": {
             "warning": 25,
@@ -35,6 +46,7 @@
         "format": "{icon}",
         "format-alt": "{ipaddr}/{cidr} {icon}",
         "format-alt-click": "click-right",
+				"on-click": "nm-connection-editor",
         "format-icons": {
             "wifi": ["", "" ,""],
             "ethernet": [""],
@@ -48,8 +60,8 @@
 			"format-alt-click": "click-right",
 			"format-muted": "0% ",
 			"format-icons": {
-				"phone": [" ", " ", " "],
-				"default": ["", "", ""]
+				"phone": ["  ", "  ", "  "],
+				"default": [" ", " ", " "]
 			},
 			"scroll-step": 10,
 			"on-click": "pavucontrol",
